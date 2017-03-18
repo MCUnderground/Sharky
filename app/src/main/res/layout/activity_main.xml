@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b9aa7a"
+        tools:context="tk.lostteam.sharky.MainActivity">
+
+
+    <Button
+            android:text="Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" android:layout_alignParentEnd="true" android:id="@+id/goBtn"
+            android:elevation="2dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_alignBottom="@+id/goBtn" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:id="@+id/urlView" android:layout_toLeftOf="@+id/goBtn"
+            android:layout_toStartOf="@+id/goBtn" android:hint="http://" style="@android:style/Widget.EditText"
+            android:layout_alignParentTop="true"/>
+    <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_below="@+id/urlView"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/webview"
+            android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+</RelativeLayout>
