@@ -1,6 +1,7 @@
 package tk.lostteam.sharky;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
         searchBtn = (Button) findViewById(R.id.goBtn);
         urlView = (EditText) findViewById(R.id.urlView);
 
+        urlView.setFocusable(true);
+        urlView.setSelectAllOnFocus(true);
+
         webview.setWebViewClient(new WebViewClient()
         {
             @Override
@@ -44,12 +48,15 @@ public class MainActivity extends Activity {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (urlView.getText().toString().contains("http://") || urlView.getText().toString().contains("https://")) {
-                    webview.loadUrl(urlView.getText().toString());
+                if (urlView.getText().toString().equals("http://sharky:settings") || urlView.getText().toString().equals("sharky:settings")) {
+                    Intent i = new Intent(MainActivity.this, SettingsActivity.class);
+                    startActivity(i);
                 } else if (!urlView.getText().toString().contains("http://") || !urlView.getText().toString().contains("https://")) {
                     webview.loadUrl("http://" + urlView.getText().toString());
-                } else if (urlView.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Enter url", Toast.LENGTH_LONG);
+                } else if (urlView.getText().toString().equals("") || urlView.getText().toString().equals("http://")) {
+                    webview.loadUrl("http://google.com");
+                } else if (urlView.getText().toString().contains("http://") || urlView.getText().toString().contains("https://")) {
+                    webview.loadUrl(urlView.getText().toString());
                 }
             }
 
