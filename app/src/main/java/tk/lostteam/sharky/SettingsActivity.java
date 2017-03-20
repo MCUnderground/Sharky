@@ -35,4 +35,9 @@ public class SettingsActivity extends MainActivity{
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }
