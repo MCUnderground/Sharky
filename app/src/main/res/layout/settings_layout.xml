@@ -4,9 +4,20 @@
                 android:layout_height="match_parent"
                 android:background="#ccc">
 
-    <TextView
-            android:text="Working"
+    <Button
+            android:text="Clear History"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" android:layout_marginBottom="226dp" android:id="@+id/textView3"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/clearHistoryBtn"
+            android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:textColor="#ffff4444"
+            android:layout_marginTop="31dp"/>
+    <Button
+            android:text="Clear Cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/clearCacheBtn"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/clearHistoryBtn" android:layout_centerHorizontal="true"
+            android:textColor="#ffff4444"/>
 </RelativeLayout>
