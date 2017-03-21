@@ -24,8 +24,46 @@ public class MainActivity extends Activity {
     ImageView backBtn;
     ImageView menuBtn;
 
-    EditText urlView;
+    AutoCompleteTextView urlView;
 
+    String[] popular =
+            {
+                    "Google.com",
+                    "Facebook.com",
+                    "Youtube.com",
+                    "Baidu.com",
+                    "Wikipedia.org",
+                    "Amazon.com",
+                    "qq.com",
+                    "live.com",
+                    "Taobao.com",
+                    "VK.com",
+                    "Twitter.com",
+                    "Instagram.com",
+                    "Reddit.com",
+                    "LinkedIn.com",
+                    "eBay.com",
+                    "Bing.com",
+                    "MSN.com",
+                    "WordPress.com",
+                    "t.co",
+                    "Microsoft.com",
+                    "Tumblr.com",
+                    "AliExpress.com",
+                    "Blogspot.com",
+                    "Netflix.com",
+                    "StackOverflow.com",
+                    "Imgur.com",
+                    "Apple.com",
+                    "Mail.ru",
+                    "GMail.com",
+                    "IMDb.com",
+                    "Office.com",
+                    "GitHub.com",
+                    "PayPal.com",
+
+
+            };
     private SwipeRefreshLayout swipeLayout;
 
 
@@ -41,16 +79,19 @@ public class MainActivity extends Activity {
         backBtn = (ImageView) findViewById(R.id.backBtn);
         menuBtn = (ImageView) findViewById(R.id.popupMenuBtn);
 
-        urlView = (EditText) findViewById(R.id.urlView);
+        urlView = (AutoCompleteTextView) findViewById(R.id.urlView);
 
         urlView.setFocusable(true);
         urlView.setSelectAllOnFocus(true);
 
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.select_dialog_item, popular);
+        urlView.setThreshold(1);
+        urlView.setAdapter(adapter);
 
 
         webview.setWebViewClient(new WebViewClient()
         {
-            
+
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 urlView.setText(url);
@@ -156,6 +197,7 @@ public class MainActivity extends Activity {
         });
 
     }
+
 
     private void urlSync(){
         Thread t = new Thread() {
